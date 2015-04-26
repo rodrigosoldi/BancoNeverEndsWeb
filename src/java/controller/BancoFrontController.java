@@ -6,8 +6,7 @@
 
 package controller;
 
-import conta.ContaCorrenteRemote;
-import entidade.ClienteRemote;
+import interfaces.ContaCorrenteRemote;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
@@ -73,11 +72,8 @@ public class BancoFrontController extends HttpServlet {
     public boolean entrar(String agencia, String conta) throws NamingException  {
         System.out.println("entrar:\n " + agencia + "\n" + conta);
         InitialContext ic = new InitialContext();
-        ContaCorrenteRemote contaCorrente = (ContaCorrenteRemote)ic.lookup("conta.ContaCorrenteRemote");
-        if (contaCorrente.autenticarConta(agencia, conta)) {
-            return true;
-        }
-        return false;
+        ContaCorrenteRemote contaCorrente = (ContaCorrenteRemote)ic.lookup("interfaces.ContaCorrenteRemote");
+        return contaCorrente.autenticarConta(agencia, conta);
     }
     
     public boolean login(String senha) {
