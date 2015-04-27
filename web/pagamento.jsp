@@ -18,6 +18,8 @@
             <p><input type="text" name="codigo" value="" placeholder="Código"></p>
             <p>Valor:</p>
             <p><input type="text" name="valor" value="" placeholder="Valor (em R$)"></p>
+            <p>Data:</p>
+            <p><input type="date" name="Data"></p>
             <p class="submit"><input type="submit" name="commit" value="Entrar"></p>
         </form>
     </body>
